@@ -296,7 +296,7 @@ class IMDbScraper:
         df = pd.DataFrame(all_movies)
         
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"{country.replace(' ', '_')}_films_{start_year}_{end_year}_{timestamp}.csv"
+        filename = f"tables/{country.replace(' ', '_')}_films_{start_year}_{end_year}_{timestamp}.csv"
         
         if not df.empty:
             df.to_csv(filename, index=False, encoding='utf-8')
@@ -317,10 +317,10 @@ def main():
     
     # Convert to Excel
     if kazakhstan_films is not None:
-        kazakhstan_films.to_excel("kazakhstan_films.xlsx", index=False, header=True)
+        kazakhstan_films.to_excel("tables/kazakhstan_films.xlsx", index=False, header=True)
         
     if south_korea_films is not None:
-        south_korea_films.to_excel("south_korea_films.xlsx", index=False, header=True)
+        south_korea_films.to_excel("tables/south_korea_films.xlsx", index=False, header=True)
 
 if __name__ == "__main__":
     main()
